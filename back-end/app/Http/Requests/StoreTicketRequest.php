@@ -22,8 +22,8 @@ class StoreTicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'assigned_developer' => 'required',
-            'client_id' => 'required',
+            'assigned_user_id' => 'required',
+            'client_user_id' => 'required',
             'product_id' => 'required',
             'ticket_status_id' => 'required',
             'ticket_priority_id' => 'required',

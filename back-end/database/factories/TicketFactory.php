@@ -17,8 +17,8 @@ class TicketFactory extends Factory
     public function definition(): array
     {
         return [
-            'assigned_developer' => fake()->numberBetween(1, 9),
-            'client_id' => fake()->numberBetween(1, 10),
+            'assigned_user_id' => fake()->numberBetween(1, 9),
+            'client_user_id' => fake()->numberBetween(1, 10),
             'product_id' => fake()->numberBetween(1, 5),
             'ticket_status_id' => fake()->numberBetween(1,3),
             'ticket_priority_id' => fake()->numberBetween(1, 3),

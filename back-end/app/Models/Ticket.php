@@ -12,8 +12,8 @@ class Ticket extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'assigned_developer',
-        'client_id',
+        'assigned_user_id',
+        'client_user_id',
         'product_id',
         'ticket_status_id',
         'ticket_priority_id',
@@ -24,12 +24,12 @@ class Ticket extends Model
 
     public function developer()
     {
-        return $this->belongsTo(User::class, 'assigned_developer');
+        return $this->belongsTo(User::class, 'assigned_user_id');
     }
 
     public function client()
     {
-        return $this->belongsTo(Client::class, 'client_id');
+        return $this->belongsTo(Client::class, 'client_user_id');
     }
 
     public function product()

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('assigned_developer');
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('assigned_user_id');
+            $table->unsignedBigInteger('client_user_id');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('ticket_status_id');
             $table->unsignedBigInteger('ticket_priority_id');
@@ -24,8 +24,8 @@ return new class extends Migration
             $table->timestamp('date_closed')->nullable();
 
             //Foreign Keys
-            $table->foreign('assigned_developer')->references('id')->on('users');
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('assigned_user_id')->references('id')->on('users');
+            $table->foreign('client_user_id')->references('id')->on('clients');
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('ticket_status_id')->references('id')->on('ticket_statuses');
             $table->foreign('ticket_priority_id')->references('id')->on('ticket_priorities');
