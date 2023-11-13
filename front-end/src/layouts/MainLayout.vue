@@ -45,9 +45,12 @@
   </q-layout>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue'
+<script setup>
+import { defineComponent, ref, onMounted } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
+import { api } from 'boot/axios'
+
+const leftDrawerOpen = ref(false)
 
 const linksList = [
   {
@@ -93,24 +96,24 @@ const linksList = [
     link: 'https://awesome.quasar.dev'
   }
 ]
+const essentialLinks = linksList
 
-export default defineComponent({
-  name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
-  setup () {
-    const leftDrawerOpen = ref(false)
-
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
+onMounted(async () => {
+  await api.get('/sanctum/csrf-cookie')
+  await api.post('/login', {
+    email: 'test@example.com',
+    password: 'password'
+  }).then(response => {
+    console.log(response.data);
+  })
+  .catch(err => {
+    console.error(err);
+  });
 })
+
+function toggleLeftDrawer(){
+  leftDrawerOpen.value = !leftDrawerOpen.value
+}
+
+
 </script>
