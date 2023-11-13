@@ -18,7 +18,7 @@ use App\Http\Controllers\TemplateTypeController;
 use App\Http\Controllers\TemplateController;
 
 /*
-|--------------------------------------------------------------------------https://github.com/eberger42/TicketSystem/tree/main/back-end
+|--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
