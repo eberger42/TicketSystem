@@ -2,7 +2,13 @@ import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
 axios.defaults.withCredentials = true
-const api = axios.create({ baseURL: 'http://localhost:8000' })
+const api = axios.create({ 
+  baseURL: 'http://localhost:8000',
+  // headers: {
+  //   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+  // }
+})
+// axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 // Redirect if Unauthorized
 
