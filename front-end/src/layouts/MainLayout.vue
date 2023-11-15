@@ -12,10 +12,17 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          Ticketing App
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn
+          stretch
+          flat
+          color="primary"
+          text-color="light"
+          label="Login"
+          to="login"
+        />
       </q-toolbar>
     </q-header>
 
@@ -39,7 +46,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="bg-background">
       <router-view />
     </q-page-container>
   </q-layout>
