@@ -22,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {   
+
         //Validator For Polymorphic Types
         Validator::extend('poly_exists_comment', function ($attribute, $value, $parameters, $validator) {
             
