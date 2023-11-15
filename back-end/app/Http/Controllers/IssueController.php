@@ -22,7 +22,7 @@ class IssueController extends Controller
      */
     public function store(StoreIssueRequest $request)
     {
-        $data = $request->validated()
+        $data = $request->validated();
 
         $issue = Issue::create($data);
         return response()->json($issue, 201);
@@ -42,7 +42,7 @@ class IssueController extends Controller
      */
     public function update(UpdateIssueRequest $request, Issue $issue)
     {
-        $data = Issue::create($request)
+        $data = Issue::create($request);
         $issue->update($data);
         return response()->json($issue, 200);
     }

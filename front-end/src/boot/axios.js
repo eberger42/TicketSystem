@@ -1,24 +1,28 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
-const api = axios.create({ baseURL: 'localhost:8000' })
+axios.defaults.withCredentials = true
+const api = axios.create({ baseURL: 'http://localhost:8000' })
 
 // Redirect if Unauthorized
-api.interceptors.response.use(
+
+let _router = null
+
+/* api.interceptors.response.use(
     (response) => response,
     (error) => {
       // Check if the error response status is 401 (Unauthorized)
       if (error.response.status === 401) {
         // Handle the 401 error here, e.g., redirect to login page
-        store.clear()
-        _router.push('/login')
+        _router.push('/')
         console.error('Unauthorized access. Please log in again.')
+      }else if (error.response.status === 419) {
+        axios.get('http://localhost:8000/sanctum/csrf-cookie')
       }
       return Promise.reject(error)
     }
-  )
-
-export default boot(({ app }) => {
+  ) */
+export default boot(({ app, router }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 
   app.config.globalProperties.$axios = axios
@@ -28,6 +32,8 @@ export default boot(({ app }) => {
   app.config.globalProperties.$api = api
   // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
   //       so you can easily perform requests against your app's API
+
+  _router = router
 })
 
 export { axios, api }

@@ -12,9 +12,19 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
-$primary   : #1976D2;
-$secondary : #26A69A;
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+// Set the default font-family
+$typography-font-family: 'Lora', serif !default;
+
+$primary   : #164863;
+$primary-light : #1E6287;
+$primary-light-2 : #1E6287;
+$secondary : #427D9D;
+$tertiary  : #9BBEC8;
 $accent    : #9C27B0;
+
+$light-text: #DDF2FD;
+$background: #DDF2FD;
 
 $dark      : #1D1D1D;
 $dark-page : #121212;

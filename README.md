@@ -36,3 +36,17 @@ You can also use this to force-rebuild your images without using cache.
 ```
 sail build --no-cache
 ```
+
+Error 419 CSRF Token Mismatch on Post Request. Added the following to app/Http/Middleware/VerifyCsrfToken.php
+```
+protected function getTokenFromRequest($request)
+    {
+        //keep default behavior, use parent method first
+        $token = parent::getTokenFromRequest($request);
+        //if token not found we will get token from cookie
+        if (!$token){
+            $token = $request->cookie('XSRF-TOKEN');
+        }
+        return $token;
+    }
+```

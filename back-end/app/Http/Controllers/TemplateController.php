@@ -6,7 +6,7 @@ use App\Http\Requests\StoreTemplatesRequest;
 use App\Http\Requests\UpdateTemplatesRequest;
 use App\Models\Templates;
 
-class TemplatesController extends Controller
+class TemplateController extends Controller
 {
     /**
      * Display a listing of the resource.

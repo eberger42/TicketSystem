@@ -1,1 +1,26 @@
 // app global css in SCSS form
+
+.bg-background {
+  background-color: $background !important;
+}
+
+.bg-primary-light  {
+  background-color: lighten($primary,10) !important;
+}
+
+.bg-primary-light-2 {
+  background-color: lighten($primary,60) !important;
+}
+.text-light  {
+  color: $light-text !important;
+}
+
+.text-dark  {
+  color: $primary !important;
+}
+
+
+.bg-brand  {
+  background: $light-text !important;
+}
+
