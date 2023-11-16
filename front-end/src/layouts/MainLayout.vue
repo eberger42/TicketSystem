@@ -12,7 +12,9 @@
         />
 
         <q-toolbar-title>
-          Ticketing App
+          <q-btn flat stretch to="/">
+            Ticketing App
+          </q-btn>
         </q-toolbar-title>
 
         <q-btn
@@ -35,11 +37,10 @@
         <q-item-label
           header
         >
-          Essential Links
         </q-item-label>
 
         <EssentialLink
-          v-for="link in essentialLinks"
+          v-for="link in linksList"
           :key="link.title"
           v-bind="link"
         />
@@ -53,19 +54,13 @@
 </template>
 
 <script setup>
-import { defineComponent, ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 import { api } from 'boot/axios'
 
 const leftDrawerOpen = ref(false)
 
 const linksList = [
-  {
-    title: 'Home',
-    caption: 'Ticket System',
-    icon: 'home',
-    link: '/'
-  },
   {
     title: 'Tickets',
     caption: 'Tickets Page',
@@ -79,7 +74,6 @@ const linksList = [
     link: '/article'
   }
 ]
-const essentialLinks = linksList
 
 onMounted(async () => {
   await api.get('/sanctum/csrf-cookie')
